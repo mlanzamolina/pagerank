@@ -1,15 +1,28 @@
 #include <iostream>
+#include <windows.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <fstream>
+#include "pglist.h"
 using namespace std;
-
+typedef std::vector<std::string> stringvec;
 int main()
 {
-	cout << "Containt type:text/html \n\n";//converts text output to html
-	cout << "<html>";
-	cout<<"<head><title>Hello web</tittle></head>";
-	cout << "<body>";
+	pglist a;
+	char* cstr; 
+	string keyword_s;
+	string str;
+	stringvec v;
+	
+	cout << "search: ";
+	cin >> keyword_s;
+	str =keyword_s;
+	cstr = &str[0];
+	a.buscar(cstr);
+	a.print();
+	a.read_directory("C:\\Users\\MarcoL\\Documents\\PageRank\\PageRank", v);
 
-	cout << "<h1>Hello web!!!!</H1>";
-	cout<<"<p>Here is your website";
-	cout << "/body></html>";
-	return 0;
 }
