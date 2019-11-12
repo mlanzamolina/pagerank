@@ -183,6 +183,30 @@ void pglist::print()
 		
 
 	}
+	int pr = 0;
+	ofstream PagerankOut("Pagerank.html", ios::out);
+	if (!PagerankOut) {
+		cerr << "Error al intentar abrir el archivo" << endl;
+		return;
+	}
+	
+
+	PagerankOut << "<!DOCTYPE html>" << endl;
+	PagerankOut << "<html>" << endl;
+	PagerankOut << "<body>" << endl;
+	PagerankOut << " <div style=\"text-align: center; color: rgb(204,102,0);\">" << endl;
+	PagerankOut << "<h1>GOOGLE RANK</h1>" << endl;
+	PagerankOut << "</div>" << endl;
+	PagerankOut << "<lu>" << endl;
+	while (tmp != 0) {
+		pr++;
+		PagerankOut << "<li><a href=" << ">" << tmp->nombre << "<" << "/a></li>" << endl << endl;
+		tmp = tmp->abajo;
+	}
+	PagerankOut << "</lu>" << endl;
+	PagerankOut << "</body>" << endl;
+	PagerankOut << "</html>" << endl;
+	PagerankOut.close();
 }
 void pglist::printb()
 {
